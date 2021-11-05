@@ -6,14 +6,14 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/10 14:45:54 by user42            #+#    #+#              #
-#    Updated: 2021/10/28 17:17:36 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/04 19:32:18 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
-FILESC = get_next_line.c ft_strlen.c
-FILESO = get_next_line.o ft_strlen.o
+FILESC = get_next_line.c ft_strlen.c ft_putnbr.c ft_itoa.c
+FILESO = get_next_line.o ft_strlen.o ft_putnbr.o ft_itoa.o
 
 all : $(NAME)
 

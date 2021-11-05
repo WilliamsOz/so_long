@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 14:43:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 01:54:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:20:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	get_next_line(int fd, char **line)
 	int		eof;
 
 	eof = read(fd, buffer, 1);
-	if (buffer[0] == '\n')
+	if (buffer[0] == '\n' || eof == 0)
 		return (eof);
 	if (eof > 0)
 		*line = get_first_read(*line, buffer);

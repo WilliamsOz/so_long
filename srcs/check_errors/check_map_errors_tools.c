@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:17:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/10/29 01:54:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:46:02 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	unvalid_char(char c)
 {
-	if (c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C' && c != 'M')
+	if (c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C')
 		return (1);
 	return (0);
 }
@@ -22,12 +22,11 @@ int	unvalid_char(char c)
 void	init_data(t_player *data)
 {
 	(*data).player = 0;
-	(*data).monster = 0;
 	(*data).exit = 0;
 	(*data).collectibles = 0;
 }
 
-t_player	get_player_data(char c, t_player data)
+t_player	get_data_of_map(char c, t_player data)
 {
 	if (c == 'E')
 		data.exit++;

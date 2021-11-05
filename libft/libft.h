@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 14:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/28 13:54:24 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/04 19:32:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int xd;
 # include <stdlib.h>
 # include <unistd.h>
 
+char		    	*ft_itoa(int n);
+void				ft_putnbr(int n);
 int					ft_strlen(char *str);
 int					get_next_line(const int fd, char **line);
 
