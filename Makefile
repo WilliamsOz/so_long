@@ -6,7 +6,7 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/06 17:34:39 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/06 18:55:01 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,34 @@ PATHERROR = $(PATHSRCS)check_errors/
 PATHUTILS = $(PATHSRCS)utils/
 FILESC = so_long.c \
 $(PATHERROR)check_all_errors.c $(PATHERROR)map_errors.c \
-$(PATHERROR)file_errors.c $(PATHERROR)init_get_check_map.c $(PATHUTILS)utils.c
+$(PATHERROR)file_errors.c $(PATHERROR)init_get_check_map.c $(PATHUTILS)utils.c \
+$(PATHERROR)cross_map.c
 FILESO = check_all_errors.o map_errors.o file_errors.o init_get_check_map.o \
-so_long.o
+utils.o so_long.o cross_map.o
 
+#mlx
+PATHMLX = ./mlx/linux_OS/
+MLXLIB = libmlx.a
+MLXINC = ./mlx/linux_OS/mlx.h
 
+all : $(NAME)
 
+$(NAME) :
+	cd ./libft && make all && mv $(LIBFTFILESO) $(LIBFTLIB) ..
+	
+#cd $(PATHMLX) && make all && mv $(MLXLIB) *.o ..
 
+	cc $(FLAGS) -c $(FILESC)
 
+	cc $(FLAGS) $(FILESO) $(LIBFTLIB) -o $(NAME)
 
+clean :
+	rm -rf *.o *.a
 
+fclean : clean
+	rm -rf $(NAME)
+
+re : fclean all
 
 
 

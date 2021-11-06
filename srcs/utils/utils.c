@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:52 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:23:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 18:50:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../../inc/so_long.h"
 
 void    free_map(t_engine engine, int x)
 {

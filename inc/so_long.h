@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:22:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 18:57:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 #endif
 
-# include "./mlx/mac_OS/mlx.h"
+// # include "./mlx/mac_OS/mlx.h"
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <unistd.h>
@@ -79,13 +79,17 @@ typedef struct  s_engine
 
 }				t_engine;
 
+void		free_map(t_engine engine, int x);
+int	is_there_map_error(t_engine engine);
+void		print_map_error(t_engine engine);
 t_engine	is_map_closed(t_engine engine, int x, int y);
+t_engine	init_get_check_map(t_engine engine);
 t_engine	check_map_errors_case(t_engine engine, int x, int y);
 t_engine	check_map_error(t_engine engine, char *file);
+void		print_file_error(t_engine engine);
 int			is_there_file_error(t_engine engine);
 t_engine	check_file_error(t_engine engine, char *file);
 t_engine	check_all_errors(t_engine engine, char *file);
-void		init_error_struct(t_engine *engine);
 
 
 #endif

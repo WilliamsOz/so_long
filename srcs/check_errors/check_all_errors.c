@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:42:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:29:36 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 19:00:16 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	init_error_struct(t_engine *engine)
 	engine->error->unvalid_char = 0;
 }
 
-static int	is_there_map_error(t_engine engine)
+int	is_there_map_error(t_engine engine)
 {
 	if (engine.error->map_bad_format == 1)
 		return (1);
@@ -65,16 +65,16 @@ void		print_map_error(t_engine engine)
 
 t_engine	check_all_errors(t_engine engine, char *file)
 {
-	init_error_struct(&engine);
+	init_error_struct(&engine); // marche pas
 	engine = check_file_error(engine, file);
 	if (is_there_file_error(engine) == 1)
 	{
 		write(1, "Error\n", 6);
-		printf_file_error(engine);
+		print_file_error(engine);
 		exit (EXIT_FAILURE);
 	}
 	engine.error->fd = open(file, O_RDONLY);
-	engine = check_map_error(engine, file);
+	engine = check_map_errors_case(engine, 0, 0);
 	close(engine.error->fd);
 	if (is_there_map_error(engine) == 1)
 	{

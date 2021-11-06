@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:15:08 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:29:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 18:58:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_engine	is_data_valid(t_engine engine)
 		engine.error->no_collectible = 1;
 	if (engine.data->exit == 0)
 		engine.error->no_exit = 1;
-	return (engine)
+	return (engine);
 }
 
 static t_engine	is_map_rectangle(t_engine engine, int x)
@@ -85,7 +85,9 @@ t_engine	check_map_errors_case(t_engine engine, int x, int y)
 	engine = is_map_closed(engine, 0, 0);
 	if (is_there_map_error(engine) == 1)
 	{
-		
+		print_map_error(engine);
+		free_map(engine, 0);
+		exit (EXIT_FAILURE);
 	}
 	return (engine);
 }

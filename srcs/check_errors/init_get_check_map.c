@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:43:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:29:26 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 18:51:48 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static t_engine	init_map(t_engine engine, char *file, int eof, int count)
+static t_engine	init_map(t_engine engine, int eof, int count)
 {
 	char	*line;
 
@@ -57,7 +57,7 @@ static void		engine_map_malloc_failed(t_engine engine, int count)
 	close(engine.error->fd);
 }
 
-static t_engine	get_map(t_engine engine, char *file, int eof, int count)
+static t_engine	get_map(t_engine engine, int eof, int count)
 {
 	char	*line;
 
@@ -81,17 +81,17 @@ static t_engine	get_map(t_engine engine, char *file, int eof, int count)
 	return (engine);
 }
 
-t_engine	init_get_check_map(t_engine engine, char *file)
+t_engine	init_get_check_map(t_engine engine)
 {
 	engine.map = NULL;
-	engine = init_map(engine, file, -1, 0);
+	engine = init_map(engine, -1, 0);
 	if (engine.error->malloc_fail == 1)
 	{
 		write(1, "Error\nMalloc Failed\n", 21);
 		close(engine.error->fd);
 		exit (EXIT_FAILURE);
 	}
-	engine = get_map(engine, file, -1, 0);
+	engine = get_map(engine, -1, 0);
 	engine = check_map_errors_case(engine, 0, 0);
 	return (engine);
 }

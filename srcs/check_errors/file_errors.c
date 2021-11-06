@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:26:23 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:29:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 18:47:28 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	printf_file_error(t_engine engine)
+void	print_file_error(t_engine engine)
 {
 	if (engine.error->no_file == 1)
 		write(1, "There is no file\n", 17);
