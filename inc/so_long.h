@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 13:50:26 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/06 17:22:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,14 @@
 # include <string.h>
 # include <errno.h>
 # define _GNU_SOURCE
+# define BONUS 0
 
+typedef struct s_map_data
+{
+	int			player;
+	int			collectible;
+	int			exit;
+}				t_map_data;
 
 typedef struct s_error
 {
@@ -59,7 +66,6 @@ typedef struct s_error
 
 typedef struct s_mlx
 {
-	char	**map;
 
 
 }				t_mlx;
@@ -68,12 +74,18 @@ typedef struct  s_engine
 {
 	t_mlx		*mlx;
 	t_error		*error;
+	t_map_data		*data;
+	char		**map;
 
 }				t_engine;
 
-
-void	check_all_errors(t_engine engine, char *file);
-void	init_error_struct(t_engine *engine);
+t_engine	is_map_closed(t_engine engine, int x, int y);
+t_engine	check_map_errors_case(t_engine engine, int x, int y);
+t_engine	check_map_error(t_engine engine, char *file);
+int			is_there_file_error(t_engine engine);
+t_engine	check_file_error(t_engine engine, char *file);
+t_engine	check_all_errors(t_engine engine, char *file);
+void		init_error_struct(t_engine *engine);
 
 
 #endif

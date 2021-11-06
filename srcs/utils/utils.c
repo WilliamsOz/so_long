@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/06 17:23:54 by wiozsert         ###   ########.fr       */
+/*   Created: 2021/11/06 17:22:52 by wiozsert          #+#    #+#             */
+/*   Updated: 2021/11/06 17:23:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/so_long.h"
+#include "../inc/so_long.h"
 
-int main(int ac, char **av)
+void    free_map(t_engine engine, int x)
 {
-	t_engine	engine;
-
-	if (ac != 2)
-		write(1, "Error\nThe number of arguments is not two\n", 41);
-	check_all_errors(engine, av[1]);
-	// init_starter(map, error);
-	return (0);
+	while (engine.map[x] != NULL)
+	{
+		free(engine.map[x]);
+		engine.map[x] = NULL;
+		x++;
+	}
+	free(engine.map[x]);
+	engine.map[x] = NULL;
+	free(engine.map);
 }
