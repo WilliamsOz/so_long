@@ -6,14 +6,14 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/10 14:45:54 by user42            #+#    #+#              #
-#    Updated: 2021/11/06 15:44:24 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/07 19:12:11 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
-FILESC = get_next_line.c ft_strlen.c ft_putnbr.c ft_itoa.c
-FILESO = get_next_line.o ft_strlen.o ft_putnbr.o ft_itoa.o
+FILESC = get_next_line.c ft_strlen.c ft_putnbr.c ft_itoa.c ft_strcmp.c
+FILESO = get_next_line.o ft_strlen.o ft_putnbr.o ft_itoa.o ft_strcmp.o
 
 all : $(NAME)
 
@@ -22,13 +22,9 @@ $(NAME) :
 	ar -rcs $(NAME) $(FILESO)
 
 clean :
-	rm -rf $(FILESO) $(BONUSO)
+	rm -rf $(FILESO)
 
 fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
-
-bonus :	fclean
-	cc $(FLAGS) -c $(FILESC) $(BONUSC)
-	ar -rcs $(NAME) $(FILESO) $(BONUSO)

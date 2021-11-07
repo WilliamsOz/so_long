@@ -6,15 +6,15 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 19:31:56 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/04 19:32:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/07 19:32:10 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_intlen(long n)
+static int	ft_intlen(long n)
 {
-	int size;
+	int	size;
 
 	size = 1;
 	while (n >= 10)
@@ -25,9 +25,9 @@ static int		ft_intlen(long n)
 	return (size);
 }
 
-static char		*ft_itoa_pos(long n, char *nbr)
+static char	*ft_itoa_pos(long n, char *nbr)
 {
-	int i;
+	int	i;
 
 	i = ft_intlen(n) - 1;
 	if (n == 0)
@@ -44,9 +44,9 @@ static char		*ft_itoa_pos(long n, char *nbr)
 	return (nbr);
 }
 
-static char		*ft_itoa_neg(long n, char *nbr)
+static char	*ft_itoa_neg(long n, char *nbr)
 {
-	int i;
+	int	i;
 
 	i = ft_intlen(n);
 	while (n > 0)
@@ -59,7 +59,7 @@ static char		*ft_itoa_neg(long n, char *nbr)
 	return (nbr);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		sign;
 	int		size;
@@ -76,7 +76,9 @@ char			*ft_itoa(int n)
 	size = ft_intlen(n_l);
 	if (sign == 1)
 		size++;
-	if (!(nbr = (char*)malloc(sizeof(char) * (size + 1))))
+	nbr = NULL;
+	nbr = (char *)malloc(sizeof(char) * (size + 1));
+	if (nbr == NULL)
 		return (NULL);
 	nbr[size] = '\0';
 	if (sign == 1)
