@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:15:08 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/07 19:08:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 15:00:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_engine	*check_map_errors_case(t_engine *engine, int x, int y)
 	if (engine->data == NULL)
 	{
 		write(1, "Error\nMalloc Failed\n", 21);
-		engine_map_destroyer(engine);
+		engine_map_destroyer(engine, 0);
 	}
 	engine = init_engine_data(engine);
 	while (engine->map[x] != NULL && engine->error->unvalid_char == 0)

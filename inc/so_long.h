@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/07 19:23:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:59:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define LEFT_KEY 97
 # define RIGHT_KEY 100
 # define ESC_KEY 65307
+# include "../mlx/linux_OS/mlx.h"
 
 #else
 
@@ -28,6 +29,7 @@
 # define LEFT_KEY 0
 # define RIGHT_KEY 2
 # define ESC_KEY 53
+# include "./mlx/mac_OS/mlx.h"
 
 #endif
 
@@ -40,7 +42,7 @@
 # include <string.h>
 # include <errno.h>
 # define _GNU_SOURCE
-# define BONUS 0
+# define BONUS 1
 
 typedef struct s_map_data
 {
@@ -66,8 +68,11 @@ typedef struct s_error
 
 typedef struct s_mlx
 {
-
-
+	void		*mlx_id;
+	void		*windows_id;
+	int			windows_x;
+	int			windows_y;
+	void		*image_id;
 }				t_mlx;
 
 typedef struct  s_engine
@@ -78,10 +83,11 @@ typedef struct  s_engine
 	char		**map;
 }				t_engine;
 
-void		engine_destroyer(t_engine *engine);
-void		engine_error_destroyer(t_engine *engine);
-void		engine_map_destroyer(t_engine *engine);
-void		engine_full_destroyer(t_engine *engine);
+void		free_all_engine(t_engine *engine, int ind);
+void		engine_destroyer(t_engine *engine, int ind);
+void		engine_error_destroyer(t_engine *engine, int ind);
+void		engine_map_destroyer(t_engine *engine, int ind);
+void		engine_full_destroyer(t_engine *engine, int ind);
 void		engine_mall_failed(void);
 void		free_map(t_engine *engine, int x);
 int			is_there_map_error(t_engine *engine);

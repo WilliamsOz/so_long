@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:42:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/07 19:32:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 15:00:25 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_engine	*init_error_struct(t_engine *engine)
 	if (engine->error == NULL)
 	{
 		write(1, "Error\nMalloc failed\n", 20);
-		engine_destroyer(engine);
+		engine_destroyer(engine, 0);
 	}
 	engine->error->no_file = 0;
 	engine->error->file_bad_format = 0;
@@ -48,16 +48,15 @@ t_engine	*check_all_errors(t_engine *engine, char *file)
 	{
 		write(1, "Error\n", 6);
 		print_file_error(engine);
-		engine_error_destroyer(engine);
+		engine_error_destroyer(engine, 0);
 	}
 	engine->error->fd = open(file, O_RDONLY);
 	engine = init_get_check_map(engine, file);
-	close(engine->error->fd);
 	if (is_there_map_error(engine) == 1)
 	{
 		write(1, "Error\n", 6);
 		print_map_error(engine);
-		engine_full_destroyer(engine);
+		engine_full_destroyer(engine, 0);
 	}
 	return (engine);
 }

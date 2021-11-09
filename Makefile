@@ -6,17 +6,18 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/07 19:00:08 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/09 14:51:41 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror #-ggdb3#-g3 -fsanitize=address
 
 #Libft
 PATHLIBFT = ./libft/
 LIBFTLIB = libft.a
 LIBFTFILESC = get_next_line.c ft_strlen.c ft_putnbr.c ft_itoa.c
+LIBFTFILESO = get_next_line.o ft_strlen.o ft_putnbr.o ft_itoa.o
 
 #srcs
 PATHSRCS = ./srcs/
@@ -40,7 +41,6 @@ MLXLIB =
 MLXINC =
 MLXFLAGS =
 MLXFILESO =
-PUTMLXFILESOINOBJ =
 
 UNAME := $(shell uname)
 
@@ -50,7 +50,8 @@ ifeq ($(UNAME), Linux)
 	MLXLIB = libmlx_Linux.a
 	MLXINC = $(PATHMLX)mlx.h
 	MLXFLAGS = -lm -lX11 -lXext
-	MLXFILESO = mlx_clear_window.o mlx_destroy_display.o mlx_destroy_image.o \
+	MLXFILESO = obj
+#mlx_clear_window.o mlx_destroy_display.o mlx_destroy_image.o \
 	mlx_destroy_window.o mlx_expose_hook.o mlx_flush_event.o \
 	mlx_get_color_value.o mlx_get_data_addr.o mlx_hook.o mlx_init.o \
 	mlx_int_anti_resize_win.o mlx_int_do_nothing.o mlx_int_get_visual.o \
@@ -71,20 +72,33 @@ else
 	
 endif
 
-all : $(NAME)
-
-$(NAME) :
-	cd ./libft && make all && mv $(LIBFTLIB) ..
-
-	cd $(PATHMLX) && make all && mv $(MLXLIB) ../..
+make test :
+	rm -Rf obj
 
 	cc $(FLAGS) -c $(FILESC) $(MLXINC)
 
 	ar -rcs $(SOLONGLIB) $(FILESO)
 
+	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
+
 	rm -Rf obj && mkdir obj && mv $(FILESO) ./obj/
 
+all : $(NAME)
+
+$(NAME) :
+	rm -Rf obj
+
+	cd ./libft && make all && mv $(LIBFTLIB) .. && rm $(LIBFTFILESO)
+
+	cd $(PATHMLX) && make all && mv $(MLXLIB) ../.. && rm -rf $(MLXFILESO)
+
+	cc $(FLAGS) -c $(FILESC) $(MLXINC)
+
+	ar -rcs $(SOLONGLIB) $(FILESO)
+
 	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
+
+	rm -Rf obj && mkdir obj && mv $(FILESO) ./obj/
 
 clean :
 	rm -rf ./obj $(SOLONGLIB) $(LIBFTLIB) $(MLXFILESO) $(MLXLIB)
