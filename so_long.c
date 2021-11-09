@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 19:50:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 23:07:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,42 +38,42 @@ static int	key_hook(int keycode, t_engine *engine)
 	return (0);
 }
 
-void	move_player(t_engine *engine)
-{
-	if (engine->keycode == 'w')
-		move_up(engine);
-	else if (engine->keycode == 's')
-		move_down(engine);
-	else if (engine->keycode == 'a')
-		move_left(engine);
-	else if (engine->keycode == 'd')
-		move_right(engine);
-	else if (engine->keycode == 'q')
-		esc_exit(engine);
-}
+// void	move_player(t_engine *engine)
+// {
+// 	if (engine->keycode == 'w')
+// 		move_up(engine);
+// 	else if (engine->keycode == 's')
+// 		move_down(engine);
+// 	else if (engine->keycode == 'a')
+// 		move_left(engine);
+// 	else if (engine->keycode == 'd')
+// 		move_right(engine);
+// 	else if (engine->keycode == 'q')
+// 		esc_exit(engine);
+// }
 
-int	manage_events(t_engine *engine)
-{
-	move_player(engine);
-	if (BONUS == 1)
-	{
-		//sprite animation
-		//move enemy 
-	}
-	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
-		engine->img->img_ptr, 0, 0);
-	if (BONUS == 1)
-	{
-		//print counter on windows
-	}
-	return (1);
-}
+// int	manage_events(t_engine *engine)
+// {
+// 	move_player(engine);
+// 	if (BONUS == 1)
+// 	{
+// 		//sprite animation
+// 		//move enemy 
+// 	}
+// 	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
+// 		engine->img->img_ptr, 0, 0);
+// 	if (BONUS == 1)
+// 	{
+// 		//print counter on windows
+// 	}
+// 	return (1);
+// }
 
 void	mlx_engine(t_engine *engine, int size_x, int size_y)
 {
 	engine->keycode = '0';
 	engine->move_count = 0;
-	engine = init_move(engine);
+	// engine = init_move(engine);
 	engine->img->win_ptr = mlx_new_window(engine->img->mlx_ptr,
 		size_x, size_y, "My Game");
 	engine->img->img_ptr = mlx_new_image(engine->img->mlx_ptr,
@@ -84,7 +84,7 @@ void	mlx_engine(t_engine *engine, int size_x, int size_y)
 	first_init_image(engine, 0, 0, 0);
 	mlx_key_hook(engine->img->win_ptr, key_hook, engine);
 	mlx_hook(engine->img->win_ptr, 17, 1L << 0, mouse_exit, &engine);
-	mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);// infini -> deplacement player (+ appliquer l'evenement (exit) || (monster) || (free_space))
+	// mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);// infini -> deplacement player (+ appliquer l'evenement (exit) || (monster) || (free_space))
 	// -> deplacement monstre
 	// -> sprite animation
 	mlx_loop(engine->img->mlx_ptr);

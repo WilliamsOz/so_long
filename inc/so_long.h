@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 19:43:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 23:07:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct  s_engine
 	char		**map;
 }				t_engine;
 
+void		first_init_image(t_engine *engine, int i, int j, int x_pos);
 void		get_monster_sprite(t_engine *engine, int i, int j);
 void		my_mlx_pixel_put(t_img *img, int x, int y, char *pixel);
 void		get_floor_sprite(t_engine *engine, int i, int j);
