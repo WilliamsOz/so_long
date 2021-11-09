@@ -6,7 +6,7 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/09 14:51:41 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/09 19:19:32 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,24 +16,27 @@ FLAGS = -Wall -Wextra -Werror #-ggdb3#-g3 -fsanitize=address
 #Libft
 PATHLIBFT = ./libft/
 LIBFTLIB = libft.a
-LIBFTFILESC = get_next_line.c ft_strlen.c ft_putnbr.c ft_itoa.c
-LIBFTFILESO = get_next_line.o ft_strlen.o ft_putnbr.o ft_itoa.o
+LIBFTFILESC = get_next_line.c ft_strlen.c ft_putnbr.c ft_itoa.c ft_strcmp.c
+LIBFTFILESO = get_next_line.o ft_strlen.o ft_putnbr.o ft_itoa.o ft_strcmp.o
 
 #srcs
 PATHSRCS = ./srcs/
 PATHERROR = $(PATHSRCS)check_errors/
 PATHUTILS = $(PATHSRCS)utils/
 PATHDSTROYER = $(PATHSRCS)engine_destroyer/
+PATHGETSPRITES = $(PATHSRCS)get_sprites/
 FILESC = so_long.c \
 $(PATHERROR)check_all_errors.c $(PATHERROR)cross_map.c \
 $(PATHERROR)file_errors.c $(PATHERROR)init_get_check_map.c \
 $(PATHERROR)map_errors_utils.c $(PATHERROR)map_errors.c $(PATHUTILS)utils.c \
-$(PATHDSTROYER)engine_destroyer.c
+$(PATHDSTROYER)engine_destroyer.c $(PATHGETSPRITES)map_sprites.c \
+$(PATHGETSPRITES)monster_bonus_sprite.c
 SOLONGLIB = so_long.a
 
 FILESO = so_long.o \
 check_all_errors.o cross_map.o file_errors.o init_get_check_map.o \
-map_errors_utils.o map_errors.o utils.o engine_destroyer.o
+map_errors_utils.o map_errors.o utils.o engine_destroyer.o map_sprites.o \
+monster_bonus_sprite.o
 
 #mlx
 PATHMLX =

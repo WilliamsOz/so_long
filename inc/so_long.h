@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 14:59:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:43:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,23 +66,35 @@ typedef struct s_error
 	int			too_many_player;
 }				t_error;
 
-typedef struct s_mlx
+typedef struct s_img
 {
-	void		*mlx_id;
-	void		*windows_id;
-	int			windows_x;
-	int			windows_y;
-	void		*image_id;
-}				t_mlx;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	char		*addr;
+	int			bit_per_pixel;
+	int			line_length;
+	int			endian;
+}				t_img;
 
 typedef struct  s_engine
 {
-	t_mlx		*mlx;
+	int			move_count;
+	char		keycode;
+	t_img		*img;
+	t_img		*sprite;
 	t_error		*error;
 	t_map_data	*data;
 	char		**map;
 }				t_engine;
 
+void		get_monster_sprite(t_engine *engine, int i, int j);
+void		my_mlx_pixel_put(t_img *img, int x, int y, char *pixel);
+void		get_floor_sprite(t_engine *engine, int i, int j);
+void		get_char_sprite(t_engine *engine, int i, int j);
+void		get_exit_sprite(t_engine *engine, int i, int j);
+void		get_collectible_sprite(t_engine *engine, int i, int j);
+void		get_wall_sprite(t_engine *engine, int i, int j);
 void		free_all_engine(t_engine *engine, int ind);
 void		engine_destroyer(t_engine *engine, int ind);
 void		engine_error_destroyer(t_engine *engine, int ind);

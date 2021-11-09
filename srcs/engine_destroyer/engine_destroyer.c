@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:55:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 15:00:01 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:27:29 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ void	engine_full_destroyer(t_engine *engine, int ind)
 
 void	free_all_engine(t_engine *engine, int ind)
 {
-	mlx_destroy_image(engine->mlx->mlx_id, engine->mlx->image_id);
-	engine->mlx->image_id = NULL;
-	mlx_destroy_window(engine->mlx->mlx_id, engine->mlx->windows_id);
-	engine->mlx->windows_id = NULL;
-	mlx_destroy_display(engine->mlx->mlx_id);
-	free(engine->mlx->mlx_id);
-	engine->mlx->mlx_id = NULL;
-	free(engine->mlx);
-	engine->mlx = NULL;
+	mlx_destroy_image(engine->img->mlx_ptr, engine->img->img_ptr);
+	engine->img->img_ptr = NULL;
+	mlx_destroy_window(engine->img->mlx_ptr, engine->img->win_ptr);
+	engine->img->win_ptr = NULL;
+	mlx_destroy_display(engine->img->mlx_ptr);
+	free(engine->img->mlx_ptr);
+	engine->img->mlx_ptr = NULL;
+	free(engine->img);
+	engine->img = NULL;
 	engine_full_destroyer(engine, ind);
 }
