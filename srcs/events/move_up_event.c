@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:09:28 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 13:55:03 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:11:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void		exit_event(t_engine *engine)
 {
 	engine->move_count++;
 	print_move(engine, engine->move_count);
+	if (BONUS == 1)
+		print_counter_bonus(engine);
 	free_all_engine(engine, 1);
 }
 
@@ -50,6 +52,8 @@ static void		dead_event(t_engine *engine)
 {
 	engine->move_count++;
 	print_move(engine, engine->move_count);
+	if (BONUS == 1)
+		print_counter_bonus(engine);
 	free_all_engine(engine, 1);
 }
 

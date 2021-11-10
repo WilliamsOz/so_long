@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:52 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 13:04:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:30:48 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,10 @@ void    free_map(t_engine *engine, int x)
 	engine->map[x] = NULL;
 	free(engine->map);
 	engine->map = NULL;
+}
+
+int	mouse_and_esc_exit(t_engine *engine)
+{
+	free_all_engine(engine, 1);
+	return (1);
 }

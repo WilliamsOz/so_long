@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:19:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 12:54:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:29:02 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	first_init_image(t_engine *engine, int i, int j, int x_pos)
 				get_char_sprite(engine, y_pos, x_pos, -1);
 			else if (engine->map[i][j] == 'E')
 				get_exit_sprite(engine, y_pos, x_pos, -1);
-			else if (engine->map[i][j] == 'C')
+			else if (engine->map[i][j] == 'C' && engine->spr_ind == 1)
 				get_collectible_sprite(engine, y_pos, x_pos, -1);
 			else if (BONUS == 1 && engine->map[i][j] == 'M')
 				get_monster_sprite(engine, y_pos, x_pos, -1);

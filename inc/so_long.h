@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 13:43:55 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:27:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # include <string.h>
 # include <errno.h>
 # define _GNU_SOURCE
-# define BONUS 0
+# define BONUS 1
 
 typedef struct s_map_data
 {
@@ -89,8 +89,13 @@ typedef struct  s_engine
 	t_error		*error;
 	t_map_data	*data;
 	char		**map;
+	char		*spr; //b
+	int			spr_ind; //b
 }				t_engine;
 
+t_engine	*collectible_sprite_animation(t_engine *engine, int x, int y);
+t_engine    *monster_patrol(t_engine *engine);
+void   		print_counter_bonus(t_engine *engine);
 void		print_move(t_engine *engine, int count);
 int			mouse_and_esc_exit(t_engine *engine);
 t_engine	*move_right(t_engine *engine, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:14:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 12:46:18 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:29:40 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	get_collectible_sprite(t_engine *engine, int i, int j, int y)
 	width = 32;
 	height = 32;
 	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->img->mlx_ptr,
-		"./textures/collectible.xpm", &width, &height);
+		"./textures/collectible1.xpm", &width, &height);
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);

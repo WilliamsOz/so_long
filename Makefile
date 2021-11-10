@@ -6,12 +6,12 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/10 13:31:27 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/10 16:36:02 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror #-ggdb3#-g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -ggdb3#-g3 -fsanitize=address
 
 #Libft
 PATHLIBFT = ./libft/
@@ -31,7 +31,7 @@ $(PATHERROR)check_all_errors.c $(PATHERROR)cross_map.c \
 $(PATHERROR)file_errors.c $(PATHERROR)init_get_check_map.c \
 $(PATHERROR)map_errors_utils.c $(PATHERROR)map_errors.c $(PATHUTILS)utils.c \
 $(PATHDSTROYER)engine_destroyer.c $(PATHGETSPRITES)map_sprites.c \
-$(PATHGETSPRITES)monster_bonus_sprite.c $(PATHGETSPRITES)first_sprites_init.c \
+$(PATHGETSPRITES)first_sprites_init.c \
 $(PATHEVENTS)catch_key_and_move_player.c $(PATHEVENTS)move_up_event.c \
 $(PATHEVENTS)move_down_event.c $(PATHEVENTS)move_left_event.c \
 $(PATHEVENTS)move_right_event.c
@@ -40,7 +40,7 @@ SOLONGLIB = so_long.a
 FILESO = so_long.o \
 check_all_errors.o cross_map.o file_errors.o init_get_check_map.o \
 map_errors_utils.o map_errors.o utils.o engine_destroyer.o map_sprites.o \
-monster_bonus_sprite.o first_sprites_init.o catch_key_and_move_player.o \
+first_sprites_init.o catch_key_and_move_player.o \
 move_up_event.o move_down_event.o move_left_event.o move_right_event.o
 
 #mlx
@@ -49,6 +49,14 @@ MLXLIB =
 MLXINC =
 MLXFLAGS =
 MLXFILESO =
+
+#bonus
+PATHBONUS = $(PATHSRCS)bonus/
+BONUSFILESC = $(PATHBONUS)print_counter_bonus.c \
+$(PATHBONUS)monster_bonus_sprite.c $(PATHBONUS)monster_patrol.c \
+$(PATHBONUS)sprite_animation.c
+BONUSFILESO = print_counter_bonus.o monster_bonus_sprite.o monster_patrol.o \
+sprite_animation.o
 
 UNAME := $(shell uname)
 
@@ -94,6 +102,8 @@ make test :
 all : $(NAME)
 
 $(NAME) :
+	sed -i 's/# define BONUS 1/# define BONUS 0/g' ./inc/so_long.h
+
 	rm -Rf obj
 
 	cd ./libft && make all && mv $(LIBFTLIB) .. && rm $(LIBFTFILESO)
@@ -124,6 +134,20 @@ re : fclean all
 
 make bonus :
 	sed -i 's/# define BONUS 0/# define BONUS 1/g' ./inc/so_long.h
+
+	rm -Rf obj
+
+	cd ./libft && make all && mv $(LIBFTLIB) .. && rm $(LIBFTFILESO)
+
+	cd $(PATHMLX) && make all && mv $(MLXLIB) ../.. && rm -rf $(MLXFILESO)
+
+	cc $(FLAGS) -c $(FILESC) $(BONUSFILESC) $(MLXINC)
+
+	ar -rcs $(SOLONGLIB) $(FILESO) $(BONUSFILESO)
+
+	mkdir obj && mv $(FILESO) ./obj/
+
+	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
 
 #make all
 #sed -i 's/# define BONUS 1/# define BONUS 0/g' ./inc/so_long.h

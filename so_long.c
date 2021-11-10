@@ -6,17 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 13:43:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:30:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/so_long.h"
-
-int	mouse_and_esc_exit(t_engine *engine)
-{
-	free_all_engine(engine, 1);
-	return (1);
-}
 
 void	print_move(t_engine *engine, int count)
 {
@@ -30,27 +24,26 @@ void	print_move(t_engine *engine, int count)
 		}
 		ft_putnbr(engine->move_count);
 	}
-	// else if (BONUS == 1)
-	// {
-		
-	// }
 }
 
 int	manage_events(t_engine *engine)
 {
 	int	count;
 
+	first_init_image(engine, 0, 0, 0);
 	count = engine->move_count;
 	engine = move_player(engine);
-	// if (BONUS == 1)
-	// {
-	// 	//sprite animation
-	// 	//move enemy 
-	// }
+	if (BONUS == 1)
+	{
+		engine = collectible_sprite_animation(engine, 0, 0);
+		engine = monster_patrol(engine);
+	}
 	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
-		engine->img->img_ptr, 0, 0);
-	if (count != engine->move_count)
-		print_move(engine, engine->move_count); // print on screen for bonus
+			engine->img->img_ptr, 0, 0);
+	if (BONUS == 0 && count != engine->move_count)
+		print_move(engine, engine->move_count);
+	if (BONUS == 1)
+		print_counter_bonus(engine);
 	return (1);
 }
 
@@ -67,17 +60,15 @@ void	mlx_engine(t_engine *engine, int size_x, int size_y)
 	engine->img->addr = mlx_get_data_addr(engine->img->img_ptr,
 		&engine->img->bit_per_pixel, &engine->img->line_length,
 		&engine->img->endian);
-	first_init_image(engine, 0, 0, 0);
 	mlx_key_hook(engine->img->win_ptr, key_hook, engine);
 	mlx_hook(engine->img->win_ptr, 17, 1L << 17, mouse_and_esc_exit, engine);
-	mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);// infini -> deplacement player (+ appliquer l'evenement (exit) || (monster) || (free_space))
-	// -> deplacement monstre
-	// -> sprite animation
+	mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);
 	mlx_loop(engine->img->mlx_ptr);
 }
 
 void	init_mlx_engine(t_engine *engine, int size_x, int size_y)
 {
+	engine->spr_ind = 1;
 	engine->img = NULL;
 	engine->img = (t_img*)malloc(sizeof(t_img));
 	if (engine->img == NULL)
