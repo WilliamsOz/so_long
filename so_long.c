@@ -6,15 +6,15 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 23:07:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 10:27:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/so_long.h"
 
-int	mouse_exit(t_engine **engine)
+int	mouse_exit(t_engine *engine)
 {
-	free_all_engine(*engine, 1);
+	free_all_engine(engine, 1);
 	return (1);
 }
 
@@ -83,7 +83,7 @@ void	mlx_engine(t_engine *engine, int size_x, int size_y)
 		&engine->img->endian);
 	first_init_image(engine, 0, 0, 0);
 	mlx_key_hook(engine->img->win_ptr, key_hook, engine);
-	mlx_hook(engine->img->win_ptr, 17, 1L << 0, mouse_exit, &engine);
+	mlx_hook(engine->img->win_ptr, 17, 1L << 17, mouse_exit, engine);
 	// mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);// infini -> deplacement player (+ appliquer l'evenement (exit) || (monster) || (free_space))
 	// -> deplacement monstre
 	// -> sprite animation

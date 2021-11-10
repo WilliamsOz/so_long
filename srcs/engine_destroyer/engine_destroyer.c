@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   engine_destroyer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:55:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 19:27:29 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 10:28:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	free_all_engine(t_engine *engine, int ind)
 {
 	mlx_destroy_image(engine->img->mlx_ptr, engine->img->img_ptr);
 	engine->img->img_ptr = NULL;
+	free(engine->sprite);
+	engine->sprite = NULL;
 	mlx_destroy_window(engine->img->mlx_ptr, engine->img->win_ptr);
 	engine->img->win_ptr = NULL;
 	mlx_destroy_display(engine->img->mlx_ptr);

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:14:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 23:08:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 10:27:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	get_floor_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
-		mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
-		engine->img->img_ptr, 0, 0);
+	free(engine->sprite->img_ptr);
 }
 
 void	get_char_sprite(t_engine *engine, int i, int j)
@@ -70,6 +69,7 @@ void	get_char_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
+	free(engine->sprite->img_ptr);
 }
 
 void	get_exit_sprite(t_engine *engine, int i, int j)
@@ -99,6 +99,7 @@ void	get_exit_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
+	free(engine->sprite->img_ptr);
 }
 
 void	get_collectible_sprite(t_engine *engine, int i, int j)
@@ -128,6 +129,7 @@ void	get_collectible_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
+	free(engine->sprite->img_ptr);
 }
 
 void	get_wall_sprite(t_engine *engine, int i, int j)
@@ -157,4 +159,5 @@ void	get_wall_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
+	free(engine->sprite->img_ptr);
 }

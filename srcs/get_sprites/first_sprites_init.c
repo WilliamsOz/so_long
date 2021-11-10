@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:19:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 23:07:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 10:28:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,6 @@ void	first_init_image(t_engine *engine, int i, int j, int x_pos)
 		x_pos += 32;
 		i++;
 	}
+	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
+		engine->img->img_ptr, 0, 0);
 }

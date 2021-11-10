@@ -6,12 +6,12 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/09 23:10:06 by user42           ###   ########.fr        #
+#    Updated: 2021/11/10 09:59:05 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror #-ggdb3#-g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -ggdb3#-g3 -fsanitize=address
 
 #Libft
 PATHLIBFT = ./libft/
@@ -101,10 +101,11 @@ $(NAME) :
 
 	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
 
-	rm -Rf obj && mkdir obj && mv $(FILESO) ./obj/
+	mkdir obj && mv $(FILESO) ./obj/
 	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
 
-	rm -Rf obj && mkdir obj && mv $(FILESO)
+#rm -Rf obj && mkdir obj && mv $(FILESO)
+
 clean :
 	rm -rf ./obj $(SOLONGLIB) $(LIBFTLIB) $(MLXFILESO) $(MLXLIB)
 
