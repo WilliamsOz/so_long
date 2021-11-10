@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 16:27:26 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 17:18:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # include <errno.h>
 # define _GNU_SOURCE
 # define BONUS 1
+# include "../srcs/bonus/so_long_bonus.h"
 
 typedef struct s_map_data
 {
