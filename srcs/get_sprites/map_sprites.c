@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   map_sprites.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:14:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 10:27:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 12:46:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	get_floor_sprite(t_engine *engine, int i, int j)
+void	get_floor_sprite(t_engine *engine, int i, int j, int y)
 {
 	char	*pixel_texture;
 	int		x;
-	int		y;
 	int		width;
 	int		height;
 
@@ -27,7 +26,6 @@ void	get_floor_sprite(t_engine *engine, int i, int j)
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);
-	y = -1;
 	while (++y < 32)
 	{
 		x = -1;
@@ -39,14 +37,13 @@ void	get_floor_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
-	free(engine->sprite->img_ptr);
+	mlx_destroy_image(engine->img->mlx_ptr, engine->sprite->img_ptr);
 }
 
-void	get_char_sprite(t_engine *engine, int i, int j)
+void	get_char_sprite(t_engine *engine, int i, int j, int y)
 {
 	char	*pixel_texture;
 	int		x;
-	int		y;
 	int		width;
 	int		height;
 
@@ -57,7 +54,6 @@ void	get_char_sprite(t_engine *engine, int i, int j)
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);
-	y = -1;
 	while (++y < 32)
 	{
 		x = -1;
@@ -69,14 +65,13 @@ void	get_char_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
-	free(engine->sprite->img_ptr);
+	mlx_destroy_image(engine->img->mlx_ptr, engine->sprite->img_ptr);
 }
 
-void	get_exit_sprite(t_engine *engine, int i, int j)
+void	get_exit_sprite(t_engine *engine, int i, int j, int y)
 {
 	char	*pixel_texture;
 	int		x;
-	int		y;
 	int		width;
 	int		height;
 
@@ -87,7 +82,6 @@ void	get_exit_sprite(t_engine *engine, int i, int j)
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);
-	y = -1;
 	while (++y < 32)
 	{
 		x = -1;
@@ -99,14 +93,13 @@ void	get_exit_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
-	free(engine->sprite->img_ptr);
+	mlx_destroy_image(engine->img->mlx_ptr, engine->sprite->img_ptr);
 }
 
-void	get_collectible_sprite(t_engine *engine, int i, int j)
+void	get_collectible_sprite(t_engine *engine, int i, int j, int y)
 {
 	char	*pixel_texture;
 	int		x;
-	int		y;
 	int		width;
 	int		height;
 
@@ -117,7 +110,6 @@ void	get_collectible_sprite(t_engine *engine, int i, int j)
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);
-	y = -1;
 	while (++y < 32)
 	{
 		x = -1;
@@ -129,14 +121,13 @@ void	get_collectible_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
-	free(engine->sprite->img_ptr);
+	mlx_destroy_image(engine->img->mlx_ptr, engine->sprite->img_ptr);
 }
 
-void	get_wall_sprite(t_engine *engine, int i, int j)
+void	get_wall_sprite(t_engine *engine, int i, int j, int y)
 {
 	char	*pixel_texture;
 	int		x;
-	int		y;
 	int		width;
 	int		height;
 
@@ -147,7 +138,6 @@ void	get_wall_sprite(t_engine *engine, int i, int j)
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);
-	y = -1;
 	while (++y < 32)
 	{
 		x = -1;
@@ -159,5 +149,5 @@ void	get_wall_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
-	free(engine->sprite->img_ptr);
+	mlx_destroy_image(engine->img->mlx_ptr, engine->sprite->img_ptr);
 }

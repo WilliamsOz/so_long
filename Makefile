@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
+#    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/10 09:59:05 by user42           ###   ########.fr        #
+#    Updated: 2021/11/10 13:31:27 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror -ggdb3#-g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror #-ggdb3#-g3 -fsanitize=address
 
 #Libft
 PATHLIBFT = ./libft/
@@ -25,18 +25,23 @@ PATHERROR = $(PATHSRCS)check_errors/
 PATHUTILS = $(PATHSRCS)utils/
 PATHDSTROYER = $(PATHSRCS)engine_destroyer/
 PATHGETSPRITES = $(PATHSRCS)get_sprites/
+PATHEVENTS = $(PATHSRCS)events/
 FILESC = so_long.c \
 $(PATHERROR)check_all_errors.c $(PATHERROR)cross_map.c \
 $(PATHERROR)file_errors.c $(PATHERROR)init_get_check_map.c \
 $(PATHERROR)map_errors_utils.c $(PATHERROR)map_errors.c $(PATHUTILS)utils.c \
 $(PATHDSTROYER)engine_destroyer.c $(PATHGETSPRITES)map_sprites.c \
-$(PATHGETSPRITES)monster_bonus_sprite.c $(PATHGETSPRITES)first_sprites_init.c
+$(PATHGETSPRITES)monster_bonus_sprite.c $(PATHGETSPRITES)first_sprites_init.c \
+$(PATHEVENTS)catch_key_and_move_player.c $(PATHEVENTS)move_up_event.c \
+$(PATHEVENTS)move_down_event.c $(PATHEVENTS)move_left_event.c \
+$(PATHEVENTS)move_right_event.c
 SOLONGLIB = so_long.a
 
 FILESO = so_long.o \
 check_all_errors.o cross_map.o file_errors.o init_get_check_map.o \
 map_errors_utils.o map_errors.o utils.o engine_destroyer.o map_sprites.o \
-monster_bonus_sprite.o first_sprites_init.o
+monster_bonus_sprite.o first_sprites_init.o catch_key_and_move_player.o \
+move_up_event.o move_down_event.o move_left_event.o move_right_event.o
 
 #mlx
 PATHMLX =
@@ -99,9 +104,8 @@ $(NAME) :
 
 	ar -rcs $(SOLONGLIB) $(FILESO)
 
-	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
-
 	mkdir obj && mv $(FILESO) ./obj/
+
 	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
 
 #rm -Rf obj && mkdir obj && mv $(FILESO)

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 14:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/11/09 13:24:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 12:16:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # define PRINTC(x) printf("%c\n", x);
 # define PRINTP(x) printf("%p\n", x);
 # define ex exit(EXIT_FAILURE);
-int xd;
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
 # include <stdlib.h>

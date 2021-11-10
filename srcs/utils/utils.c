@@ -6,11 +6,58 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:52 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 14:10:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 13:04:40 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
+
+t_engine	*get_all_collectible(t_engine *engine)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	engine->collectible = 0;
+	while (engine->map[x] != NULL && engine->map[x][y] != 'P')
+	{
+		while (engine->map[x][y] != '\0')
+		{
+			if (engine->map[x][y] == 'C')
+				engine->collectible++;
+			y++;
+		}
+		y = 0;
+		x++;
+	}
+	return (engine);
+}
+
+t_engine	*get_player_position(t_engine *engine)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (engine->map[x] != NULL && engine->map[x][y] != 'P')
+	{
+		while (engine->map[x][y] != '\0')
+		{
+			if (engine->map[x][y] == 'P')
+			{
+				engine->player_pos_x = x;
+				engine->player_pos_y = y;
+				return (engine);
+			}
+			y++;
+		}
+		y = 0;
+		x++;
+	}
+	return (engine);
+}
 
 void    free_map(t_engine *engine, int x)
 {

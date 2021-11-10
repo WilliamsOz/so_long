@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 23:14:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 13:43:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # include <string.h>
 # include <errno.h>
 # define _GNU_SOURCE
-# define BONUS 1
+# define BONUS 0
 
 typedef struct s_map_data
 {
@@ -79,6 +79,9 @@ typedef struct s_img
 
 typedef struct  s_engine
 {
+	int			collectible;
+	int			player_pos_x;
+	int			player_pos_y;
 	int			move_count;
 	char		keycode;
 	t_img		*img;
@@ -88,14 +91,24 @@ typedef struct  s_engine
 	char		**map;
 }				t_engine;
 
+void		print_move(t_engine *engine, int count);
+int			mouse_and_esc_exit(t_engine *engine);
+t_engine	*move_right(t_engine *engine, int x, int y);
+t_engine	*move_left(t_engine *engine, int x, int y);
+t_engine	*move_down(t_engine *engine, int x, int y);
+t_engine	*move_up(t_engine *engine, int x, int y);
+t_engine	*move_player(t_engine *engine);
+int			key_hook(int keycode, t_engine *engine);
+t_engine	*get_all_collectible(t_engine *engine);
+t_engine	*get_player_position(t_engine *engine);
 void		first_init_image(t_engine *engine, int i, int j, int x_pos);
-void		get_monster_sprite(t_engine *engine, int i, int j);
+void		get_monster_sprite(t_engine *engine, int i, int j, int y);
 void		my_mlx_pixel_put(t_img *img, int x, int y, char *pixel);
-void		get_floor_sprite(t_engine *engine, int i, int j);
-void		get_char_sprite(t_engine *engine, int i, int j);
-void		get_exit_sprite(t_engine *engine, int i, int j);
-void		get_collectible_sprite(t_engine *engine, int i, int j);
-void		get_wall_sprite(t_engine *engine, int i, int j);
+void		get_floor_sprite(t_engine *engine, int i, int j, int y);
+void		get_char_sprite(t_engine *engine, int i, int j, int y);
+void		get_exit_sprite(t_engine *engine, int i, int j, int y);
+void		get_collectible_sprite(t_engine *engine, int i, int j, int y);
+void		get_wall_sprite(t_engine *engine, int i, int j, int y);
 void		free_all_engine(t_engine *engine, int ind);
 void		engine_destroyer(t_engine *engine, int ind);
 void		engine_error_destroyer(t_engine *engine, int ind);

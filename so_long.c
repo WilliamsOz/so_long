@@ -3,77 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 10:27:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 13:43:56 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/so_long.h"
 
-int	mouse_exit(t_engine *engine)
+int	mouse_and_esc_exit(t_engine *engine)
 {
 	free_all_engine(engine, 1);
 	return (1);
 }
 
-static int	key_hook(int keycode, t_engine *engine)
+void	print_move(t_engine *engine, int count)
 {
-	if (keycode == UP_KEY)
-		engine->keycode = 'w';
-	else if (keycode == DOWN_KEY)
-		engine->keycode = 's';
-	else if (keycode == LEFT_KEY)
-		engine->keycode = 'a';
-	else if (keycode == RIGHT_KEY)
-		engine->keycode = 'd';
-	else if (keycode == ESC_KEY)
-		engine->keycode = 'q';
-	else
+	if (BONUS == 0)
 	{
-		engine->keycode = '0';
-		return (1);
+		write(1, "\b", 1);
+		while (count >= 10)
+		{
+			write(1, "\b", 1);
+			count /= 10;
+		}
+		ft_putnbr(engine->move_count);
 	}
-	return (0);
+	// else if (BONUS == 1)
+	// {
+		
+	// }
 }
 
-// void	move_player(t_engine *engine)
-// {
-// 	if (engine->keycode == 'w')
-// 		move_up(engine);
-// 	else if (engine->keycode == 's')
-// 		move_down(engine);
-// 	else if (engine->keycode == 'a')
-// 		move_left(engine);
-// 	else if (engine->keycode == 'd')
-// 		move_right(engine);
-// 	else if (engine->keycode == 'q')
-// 		esc_exit(engine);
-// }
+int	manage_events(t_engine *engine)
+{
+	int	count;
 
-// int	manage_events(t_engine *engine)
-// {
-// 	move_player(engine);
-// 	if (BONUS == 1)
-// 	{
-// 		//sprite animation
-// 		//move enemy 
-// 	}
-// 	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
-// 		engine->img->img_ptr, 0, 0);
-// 	if (BONUS == 1)
-// 	{
-// 		//print counter on windows
-// 	}
-// 	return (1);
-// }
+	count = engine->move_count;
+	engine = move_player(engine);
+	// if (BONUS == 1)
+	// {
+	// 	//sprite animation
+	// 	//move enemy 
+	// }
+	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
+		engine->img->img_ptr, 0, 0);
+	if (count != engine->move_count)
+		print_move(engine, engine->move_count); // print on screen for bonus
+	return (1);
+}
 
 void	mlx_engine(t_engine *engine, int size_x, int size_y)
 {
 	engine->keycode = '0';
 	engine->move_count = 0;
-	// engine = init_move(engine);
+	engine = get_player_position(engine);
+	engine = get_all_collectible(engine);
 	engine->img->win_ptr = mlx_new_window(engine->img->mlx_ptr,
 		size_x, size_y, "My Game");
 	engine->img->img_ptr = mlx_new_image(engine->img->mlx_ptr,
@@ -83,8 +69,8 @@ void	mlx_engine(t_engine *engine, int size_x, int size_y)
 		&engine->img->endian);
 	first_init_image(engine, 0, 0, 0);
 	mlx_key_hook(engine->img->win_ptr, key_hook, engine);
-	mlx_hook(engine->img->win_ptr, 17, 1L << 17, mouse_exit, engine);
-	// mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);// infini -> deplacement player (+ appliquer l'evenement (exit) || (monster) || (free_space))
+	mlx_hook(engine->img->win_ptr, 17, 1L << 17, mouse_and_esc_exit, engine);
+	mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);// infini -> deplacement player (+ appliquer l'evenement (exit) || (monster) || (free_space))
 	// -> deplacement monstre
 	// -> sprite animation
 	mlx_loop(engine->img->mlx_ptr);

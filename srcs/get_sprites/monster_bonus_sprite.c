@@ -6,17 +6,16 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:18:39 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 19:19:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/10 12:32:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	get_monster_sprite(t_engine *engine, int i, int j)
+void	get_monster_sprite(t_engine *engine, int i, int j, int y)
 {
 	char	*pixel_texture;
 	int		x;
-	int		y;
 	int		width;
 	int		height;
 
@@ -27,7 +26,6 @@ void	get_monster_sprite(t_engine *engine, int i, int j)
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
 		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
 		&engine->sprite->endian);
-	y = -1;
 	while (++y < 32)
 	{
 		x = -1;
@@ -39,4 +37,5 @@ void	get_monster_sprite(t_engine *engine, int i, int j)
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}
+	mlx_destroy_image(engine->img->mlx_ptr, engine->sprite->img_ptr);
 }
