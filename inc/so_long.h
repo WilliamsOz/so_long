@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 15:28:57 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 16:18:25 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include "../libft/libft.h"
 # include "./so_long_bonus.h"
 # include <fcntl.h>
-# include <unistd.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include <string.h>
 # include <errno.h>
 # define _GNU_SOURCE
@@ -28,7 +26,7 @@
 # define LEFT_KEY 97
 # define RIGHT_KEY 100
 # define ESC_KEY 65307
-# define BONUS 0
+# define BONUS 1
 
 void		print_move(t_engine *engine, int count);
 int			mouse_and_esc_exit(t_engine *engine);
