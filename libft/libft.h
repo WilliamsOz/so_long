@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 14:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/11/11 01:45:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/11 10:53:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ typedef struct  s_engine
 	t_error				*error;
 	t_map_data			*data;
 	char				**map;
-	char				*spr; //b
-	int					spr_ind; //b
+	char				*spr;
+	int					spr_ind;
 }				t_engine;
 
 #endif

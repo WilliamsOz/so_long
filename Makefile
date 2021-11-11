@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 17:24:12 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/10 17:17:20 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/11 10:55:38 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,17 +88,6 @@ else
 	
 endif
 
-make test :
-	rm -Rf obj
-
-	cc $(FLAGS) -c $(FILESC) $(MLXINC)
-
-	ar -rcs $(SOLONGLIB) $(FILESO)
-
-	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
-
-	rm -Rf obj && mkdir obj && mv $(FILESO) ./obj/
-
 all : $(NAME)
 
 $(NAME) :
@@ -117,8 +106,6 @@ $(NAME) :
 	mkdir obj && mv $(FILESO) ./obj/
 
 	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
-
-#rm -Rf obj && mkdir obj && mv $(FILESO)
 
 clean :
 	rm -rf ./obj $(SOLONGLIB) $(LIBFTLIB) $(MLXFILESO) $(MLXLIB)
@@ -145,11 +132,6 @@ make bonus :
 
 	ar -rcs $(SOLONGLIB) $(FILESO) $(BONUSFILESO)
 
-	mkdir obj && mv $(FILESO) ./obj/
+	mkdir obj && mv $(FILESO) $(BONUSFILESO) ./obj/
 
 	cc $(FLAGS) $(SOLONGLIB) $(LIBFTLIB) $(MLXLIB) $(MLXFLAGS) -o $(NAME)
-
-#make all
-#sed -i 's/# define BONUS 1/# define BONUS 0/g' ./inc/so_long.h
-
-# :%.o tout les point o :%.c
