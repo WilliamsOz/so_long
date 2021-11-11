@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 17:18:27 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 01:37:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,55 +44,6 @@
 # define _GNU_SOURCE
 # define BONUS 1
 # include "../srcs/bonus/so_long_bonus.h"
-
-typedef struct s_map_data
-{
-	int			player;
-	int			collectible;
-	int			exit;
-}				t_map_data;
-
-typedef struct s_error
-{
-	int			no_file;
-	int			fd;
-	int			file_bad_format;
-	int			malloc_fail;
-	int			map_not_close;
-	int			map_bad_format;
-	int			unvalid_char;
-	int			no_exit;
-	int			no_collectible;
-	int			no_player;
-	int			too_many_player;
-}				t_error;
-
-typedef struct s_img
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	char		*addr;
-	int			bit_per_pixel;
-	int			line_length;
-	int			endian;
-}				t_img;
-
-typedef struct  s_engine
-{
-	int			collectible;
-	int			player_pos_x;
-	int			player_pos_y;
-	int			move_count;
-	char		keycode;
-	t_img		*img;
-	t_img		*sprite;
-	t_error		*error;
-	t_map_data	*data;
-	char		**map;
-	char		*spr; //b
-	int			spr_ind; //b
-}				t_engine;
 
 t_engine	*collectible_sprite_animation(t_engine *engine, int x, int y);
 t_engine    *monster_patrol(t_engine *engine);
@@ -133,6 +84,5 @@ void		print_file_error(t_engine *engine);
 int			is_there_file_error(t_engine *engine);
 t_engine	*check_file_error(t_engine *engine, char *file);
 t_engine	*check_all_errors(t_engine *engine, char *file);
-
 
 #endif

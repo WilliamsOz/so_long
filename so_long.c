@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 16:30:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 01:27:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	manage_events(t_engine *engine)
 
 void	mlx_engine(t_engine *engine, int size_x, int size_y)
 {
+	if (BONUS == 1)
+		engine = get_monster_position(engine, 0, 0, 0);
 	engine->keycode = '0';
 	engine->move_count = 0;
 	engine = get_player_position(engine);
@@ -95,7 +97,7 @@ void	init_mlx_engine(t_engine *engine, int size_x, int size_y)
 	mlx_engine(engine, size_x, size_y);
 }
 
-int main(int ac, char **av)
+int main(int ac, char **av) //ne pas oublier de free la lk en entier
 {
 	t_engine	*engine;
 
