@@ -1,5 +1,0 @@
-1- Debug compilation :
-gcc -Wall -Werror -Wextra -o (progName) -ggdb3 main.c (otherSourceFiles)
-2- Debug command :
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./(executableName) (exampleParam1)
-3- Check valgrind-out.txt file
