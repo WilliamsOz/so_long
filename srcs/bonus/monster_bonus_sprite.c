@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monster_bonus_sprite.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:18:39 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 00:54:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:35:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	get_monster_sprite(t_engine *engine, int i, int j, int y)
 	width = 32;
 	height = 32;
 	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->img->mlx_ptr,
-		"./textures/monster.xpm", &width, &height);
+			"./textures/monster.xpm", &width, &height);
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr,
-		&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
-		&engine->sprite->endian);
+			&engine->sprite->bit_per_pixel, &engine->sprite->line_length,
+			&engine->sprite->endian);
 	while (++y < 32)
 	{
 		x = -1;
 		while (++x < 32)
 		{
-			pixel_texture = engine->sprite->addr +
-			(y * engine->sprite->line_length +
-			x * (engine->sprite->bit_per_pixel / 8));
+			pixel_texture = engine->sprite->addr
+				+ (y * engine->sprite->line_length
+					+ x * (engine->sprite->bit_per_pixel / 8));
 			my_mlx_pixel_put(engine->img, x + i, y + j, pixel_texture);
 		}
 	}

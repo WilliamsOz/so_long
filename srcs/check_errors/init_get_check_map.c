@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:43:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 12:10:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:42:41 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static void		get_count_and_free_line(char *line, int *count)
+static void	get_count_and_free_line(char *line, int *count)
 {
 	free(line);
 	line = NULL;
@@ -45,7 +45,7 @@ static t_engine	*init_map(t_engine *engine, int eof, int count)
 	return (engine);
 }
 
-static void		engine_map_malloc_failed(t_engine *engine, int count)
+static void	engine_map_malloc_failed(t_engine *engine, int count)
 {
 	int		free_count;
 

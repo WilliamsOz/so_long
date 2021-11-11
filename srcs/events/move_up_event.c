@@ -6,15 +6,15 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:09:28 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 16:11:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:46:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static t_engine    *collectible_event(t_engine *engine, int x, int y)
+static t_engine	*collectible_event(t_engine *engine, int x, int y)
 {
-    engine->collectible--;
+	engine->collectible--;
 	engine->map[x][y] = '0';
 	get_floor_sprite(engine, y * 32, x * 32, -1);
 	x--;
@@ -26,7 +26,7 @@ static t_engine    *collectible_event(t_engine *engine, int x, int y)
 	return (engine);
 }
 
-static t_engine    *walk_event(t_engine *engine, int x, int y)
+static t_engine	*walk_event(t_engine *engine, int x, int y)
 {
 	engine->map[x][y] = '0';
 	get_floor_sprite(engine, y * 32, x * 32, -1);
@@ -39,7 +39,7 @@ static t_engine    *walk_event(t_engine *engine, int x, int y)
 	return (engine);
 }
 
-static void		exit_event(t_engine *engine)
+static void	exit_event(t_engine *engine)
 {
 	engine->move_count++;
 	print_move(engine, engine->move_count);
@@ -48,7 +48,7 @@ static void		exit_event(t_engine *engine)
 	free_all_engine(engine, 1);
 }
 
-static void		dead_event(t_engine *engine)
+static void	dead_event(t_engine *engine)
 {
 	engine->move_count++;
 	print_move(engine, engine->move_count);
@@ -60,7 +60,7 @@ static void		dead_event(t_engine *engine)
 t_engine	*move_up(t_engine *engine, int x, int y)
 {
 	if (engine->map[x - 1][y] == 'C')
-        engine = collectible_event(engine, x, y);
+		engine = collectible_event(engine, x, y);
 	else if (engine->map[x - 1][y] == '0')
 		engine = walk_event(engine, x, y);
 	else if (engine->collectible == 0 && engine->map[x - 1][y] == 'E')

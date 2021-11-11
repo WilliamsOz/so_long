@@ -6,15 +6,15 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:28:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 13:40:51 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:45:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static t_engine    *collectible_event(t_engine *engine, int x, int y)
+static t_engine	*collectible_event(t_engine *engine, int x, int y)
 {
-    engine->collectible--;
+	engine->collectible--;
 	engine->map[x][y] = '0';
 	get_floor_sprite(engine, y * 32, x * 32, -1);
 	y++;
@@ -26,7 +26,7 @@ static t_engine    *collectible_event(t_engine *engine, int x, int y)
 	return (engine);
 }
 
-static t_engine    *walk_event(t_engine *engine, int x, int y)
+static t_engine	*walk_event(t_engine *engine, int x, int y)
 {
 	engine->map[x][y] = '0';
 	get_floor_sprite(engine, y * 32, x * 32, -1);
@@ -39,7 +39,7 @@ static t_engine    *walk_event(t_engine *engine, int x, int y)
 	return (engine);
 }
 
-static t_engine		*exit_event(t_engine *engine)
+static t_engine	*exit_event(t_engine *engine)
 {
 	engine->move_count++;
 	print_move(engine, engine->move_count);
@@ -47,7 +47,7 @@ static t_engine		*exit_event(t_engine *engine)
 	return (engine);
 }
 
-static t_engine		*dead_event(t_engine *engine)
+static t_engine	*dead_event(t_engine *engine)
 {
 	engine->move_count++;
 	print_move(engine, engine->move_count);
@@ -58,7 +58,7 @@ static t_engine		*dead_event(t_engine *engine)
 t_engine	*move_right(t_engine *engine, int x, int y)
 {
 	if (engine->map[x][y + 1] == 'C')
-        engine = collectible_event(engine, x, y);
+		engine = collectible_event(engine, x, y);
 	else if (engine->map[x][y + 1] == '0')
 		engine = walk_event(engine, x, y);
 	else if (engine->collectible == 0 && engine->map[x][y + 1] == 'E')

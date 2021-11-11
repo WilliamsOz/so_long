@@ -3,38 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 10:50:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:28:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#ifdef __linux__
-
-# define UP_KEY 119
-# define DOWN_KEY 115
-# define LEFT_KEY 97
-# define RIGHT_KEY 100
-# define ESC_KEY 65307
 # include "../mlx/linux_OS/mlx.h"
-
-#else
-
-# define UP_KEY 13
-# define DOWN_KEY 1
-# define LEFT_KEY 0
-# define RIGHT_KEY 2
-# define ESC_KEY 53
-# include "./mlx/mac_OS/mlx.h"
-
-#endif
-
-// # include "./mlx/mac_OS/mlx.h"
 # include "../libft/libft.h"
+# include "./so_long_bonus.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -42,12 +23,13 @@
 # include <string.h>
 # include <errno.h>
 # define _GNU_SOURCE
-# define BONUS 1
-# include "../srcs/bonus/so_long_bonus.h"
+# define UP_KEY 119
+# define DOWN_KEY 115
+# define LEFT_KEY 97
+# define RIGHT_KEY 100
+# define ESC_KEY 65307
+# define BONUS 0
 
-t_engine	*collectible_sprite_animation(t_engine *engine, int x, int y);
-t_engine    *monster_patrol(t_engine *engine);
-void   		print_counter_bonus(t_engine *engine);
 void		print_move(t_engine *engine, int count);
 int			mouse_and_esc_exit(t_engine *engine);
 t_engine	*move_right(t_engine *engine, int x, int y);

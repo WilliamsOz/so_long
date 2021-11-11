@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:26:23 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/09 14:24:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:42:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_file_error(t_engine *engine)
 		write(1, "Format of the file is not corret\n", 33);
 }
 
-int		is_there_file_error(t_engine *engine)
+int	is_there_file_error(t_engine *engine)
 {
 	if (engine->error->no_file == 1)
 		return (1);
@@ -29,20 +29,19 @@ int		is_there_file_error(t_engine *engine)
 	return (0);
 }
 
-static t_engine	*check_file_name(t_engine *engine, char *file , int i)
+static t_engine	*check_file_name(t_engine *engine, char *file, int i)
 {
 	while (file[i] != '\0')
 		i++;
 	if ((i == 4 && file[i - 1] == 'r' && file[i - 2] == 'e'
-		&& file[i - 3] == 'b' && file[i - 4] == '.')
+			&& file[i - 3] == 'b' && file[i - 4] == '.')
 		|| (file[i - 1] == 'r' && file[i - 2] == 'e'
-		&& file[i - 3] == 'b' && file[i - 4] == '.' && file[i - 5] == '/'))
+			&& file[i - 3] == 'b' && file[i - 4] == '.' && file[i - 5] == '/'))
 		engine->error->file_bad_format = 1;
 	else if (ft_strlen(file) <= 4)
 		engine->error->file_bad_format = 1;
 	return (engine);
 }
-
 
 t_engine	*check_file_error(t_engine *engine, char *file)
 {

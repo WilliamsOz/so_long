@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:52 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 16:30:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:48:48 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_engine	*get_player_position(t_engine *engine)
 	return (engine);
 }
 
-void    free_map(t_engine *engine, int x)
+void	free_map(t_engine *engine, int x)
 {
 	while (engine->map[x] != NULL)
 	{

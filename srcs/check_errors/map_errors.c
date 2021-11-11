@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_errors.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:15:08 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 00:33:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:58:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static t_engine    *is_char_valid(t_engine *engine, char c)
+static t_engine	*is_char_valid(t_engine *engine, char c)
 {
 	if (BONUS == 0 && c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C')
 		engine->error->unvalid_char = 1;
@@ -65,16 +65,16 @@ static t_engine	*is_map_rectangle(t_engine *engine, int x)
 t_engine	*check_map_errors_case(t_engine *engine, int x, int y)
 {
 	engine->data = NULL;
-	engine->data = (t_map_data*)malloc(sizeof(t_map_data));
+	engine->data = (t_map_data *)malloc(sizeof(t_map_data));
 	if (engine->data == NULL)
 	{
 		write(1, "Error\nMalloc Failed\n", 21);
 		engine_map_destroyer(engine, 0);
 	}
 	engine = init_engine_data(engine);
-	while (engine->map[x] != NULL && engine->error->unvalid_char == 0)
+	while (engine->map[x] != NULL)
 	{
-		while (engine->map[x][y] != '\0' && engine->error->unvalid_char == 0)
+		while (engine->map[x][y] != '\0')
 		{
 			if (y == 0 && engine->map[x][y] == '\0')
 				engine->error->map_bad_format = 1;

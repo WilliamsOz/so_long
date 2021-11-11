@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:09:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/07 19:14:01 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:42:50 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	is_there_map_error(t_engine *engine)
 	return (0);
 }
 
-void		print_map_error(t_engine *engine)
+void	print_map_error(t_engine *engine)
 {
 	if (engine->error->map_bad_format == 1)
 		write(1, "Map format is incorect\n", 23);

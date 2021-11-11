@@ -3,36 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 14:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/11/11 10:53:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:44:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-
-//DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
-#include <stdio.h>
-# define D printf("ICI\n");
-# define PRINTD(x) printf("%d\n", x);
-# define PRINTS(x) printf("%s\n", x);
-# define PRINTC(x) printf("%c\n", x);
-# define PRINTP(x) printf("%p\n", x);
-# define ex exit(EXIT_FAILURE);
-//DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
-
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_strcmp(char *s1, char *s2);
-char	*ft_itoa(int n);
-void	ft_putnbr(int n);
-int		ft_strlen(char *str);
-int		get_next_line(const int fd, char **line);
-
+typedef struct s_monster_position
+{
+	int							x;
+	int							y;
+	int							ind;
+	struct s_monster_position	*next;
+}				t_monster_position;
 
 typedef struct s_map_data
 {
@@ -67,23 +57,14 @@ typedef struct s_img
 	int			endian;
 }				t_img;
 
-typedef struct s_monster_position
-{
-	int							x;
-	int							y;
-	int							ind;
-	struct s_monster_position	*next;
-}				t_monster_position;
-
 typedef struct s_sprite
 {
-	char        *spr;
-	int         spr_ind;
-}               t_sprite;
+	char		*spr;
+	int			spr_ind;
+}				t_sprite;
 
-typedef struct  s_engine
+typedef struct s_engine
 {
-
 	t_monster_position	*monster_position;
 	int					collectible;
 	int					player_pos_x;
@@ -98,5 +79,12 @@ typedef struct  s_engine
 	char				*spr;
 	int					spr_ind;
 }				t_engine;
+
+void	ft_lst_clear(t_monster_position *data);
+int		ft_strcmp(char *s1, char *s2);
+char	*ft_itoa(int n);
+void	ft_putnbr(int n);
+int		ft_strlen(char *str);
+int		get_next_line(const int fd, char **line);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 10:52:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:49:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	manage_events(t_engine *engine)
 		engine = monster_patrol(engine);
 	}
 	mlx_put_image_to_window(engine->img->mlx_ptr, engine->img->win_ptr,
-			engine->img->img_ptr, 0, 0);
+		engine->img->img_ptr, 0, 0);
 	if (BONUS == 0 && count != engine->move_count)
 		print_move(engine, engine->move_count);
 	if (BONUS == 1)
@@ -50,18 +50,18 @@ int	manage_events(t_engine *engine)
 void	mlx_engine(t_engine *engine, int size_x, int size_y)
 {
 	if (BONUS == 1)
-		engine = get_monster_position(engine, 0, 0, 0);
+		engine = get_monster_pos(engine, 0, 0, 0);
 	engine->keycode = '0';
 	engine->move_count = 0;
 	engine = get_player_position(engine);
 	engine = get_all_collectible(engine);
 	engine->img->win_ptr = mlx_new_window(engine->img->mlx_ptr,
-		size_x, size_y, "My Game");
+			size_x, size_y, "My Game");
 	engine->img->img_ptr = mlx_new_image(engine->img->mlx_ptr,
-		size_x, size_y);
+			size_x, size_y);
 	engine->img->addr = mlx_get_data_addr(engine->img->img_ptr,
-		&engine->img->bit_per_pixel, &engine->img->line_length,
-		&engine->img->endian);
+			&engine->img->bit_per_pixel, &engine->img->line_length,
+			&engine->img->endian);
 	mlx_key_hook(engine->img->win_ptr, key_hook, engine);
 	mlx_hook(engine->img->win_ptr, 17, 1L << 17, mouse_and_esc_exit, engine);
 	mlx_loop_hook(engine->img->mlx_ptr, manage_events, engine);
@@ -72,14 +72,14 @@ void	init_mlx_engine(t_engine *engine, int size_x, int size_y)
 {
 	engine->spr_ind = 1;
 	engine->img = NULL;
-	engine->img = (t_img*)malloc(sizeof(t_img));
+	engine->img = (t_img *)malloc(sizeof(t_img));
 	if (engine->img == NULL)
 	{
 		write(1, "Error\nMlx malloc failed\n", 24);
 		engine_full_destroyer(engine, 0);
 	}
 	engine->sprite = NULL;
-	engine->sprite = (t_img*)malloc(sizeof(t_img));
+	engine->sprite = (t_img *)malloc(sizeof(t_img));
 	if (engine->sprite == NULL)
 	{
 		free(engine->img);
@@ -97,14 +97,14 @@ void	init_mlx_engine(t_engine *engine, int size_x, int size_y)
 	mlx_engine(engine, size_x, size_y);
 }
 
-int main(int ac, char **av) //ne pas oublier de free la lk en entier
+int	main(int ac, char **av)
 {
 	t_engine	*engine;
 
 	if (ac != 2)
 		write(1, "Error\nThe number of arguments is not two\n", 41);
 	else if (ft_strcmp("/dev/random", av[1]) == 1
-			|| ft_strcmp("/dev/null", av[1]) == 1)
+		|| ft_strcmp("/dev/null", av[1]) == 1)
 		return (0);
 	engine = NULL;
 	engine = check_all_errors(engine, av[1]);
