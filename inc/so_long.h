@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 18:04:44 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 16:18:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/12 17:10:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx/linux_OS/mlx.h"
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include "./so_long_bonus.h"
 # include <fcntl.h>

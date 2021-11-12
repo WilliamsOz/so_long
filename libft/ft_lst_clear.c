@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 15:43:43 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 15:44:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:48:52 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	ft_lst_clear(t_monster_position *data)
 	tmp = data;
 	while (tmp != NULL)
 	{
+		data = data->next;
 		free(tmp);
 		tmp = NULL;
-		data = data->next;
 		tmp = data;
 	}
+	data = NULL;
 }

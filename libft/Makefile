@@ -6,7 +6,7 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/10 14:45:54 by user42            #+#    #+#              #
-#    Updated: 2021/11/11 15:56:34 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/12 17:54:59 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,13 @@ ft_lst_clear.o
 all : $(NAME)
 
 $(NAME) :
-	cc $(FLAGS) -c $(FILESC)
-	ar -rcs $(NAME) $(FILESO)
+	@cc $(FLAGS) -c $(FILESC)
+	@ar -rcs $(NAME) $(FILESO)
 
 clean :
-	rm -rf $(FILESO)
+	@rm -rf $(FILESO)
 
 fclean : clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
