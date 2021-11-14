@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:41:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 15:39:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:21:02 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 static t_engine	*check_diagonals_ends(t_engine *engine, int x, int y)
 {

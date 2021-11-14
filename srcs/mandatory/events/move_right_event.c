@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:28:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 15:45:55 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:21:33 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 static t_engine	*collectible_event(t_engine *engine, int x, int y)
 {

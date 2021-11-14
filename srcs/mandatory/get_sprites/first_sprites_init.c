@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:19:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 16:29:02 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:21:40 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, char *pixel)
 {

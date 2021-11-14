@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:43:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 15:42:41 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:21:08 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 static void	get_count_and_free_line(char *line, int *count)
 {

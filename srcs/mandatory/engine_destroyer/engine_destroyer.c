@@ -6,20 +6,19 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:55:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/12 16:48:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:58:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 void	engine_destroyer(t_engine *engine, int ind)
 {
 	free(engine);
 	engine = NULL;
-	if (ind == 0)
-		exit (EXIT_FAILURE);
-	else if (ind == 1)
+	if (ind == 1)
 		exit (EXIT_SUCCESS);
+	exit (EXIT_FAILURE);
 }
 
 void	engine_error_destroyer(t_engine *engine, int ind)

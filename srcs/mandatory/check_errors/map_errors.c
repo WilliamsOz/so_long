@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:15:08 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/12 16:44:16 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:21:16 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 static t_engine	*is_char_valid(t_engine *engine, char c)
 {

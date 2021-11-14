@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:14:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/11 15:48:14 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:21:42 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 void	get_floor_sprite(t_engine *engine, int i, int j, int y)
 {

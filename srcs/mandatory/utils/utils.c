@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:52 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/12 16:39:06 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:54:17 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 t_engine	*get_all_collectible(t_engine *engine)
 {

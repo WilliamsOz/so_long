@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:06:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/10 15:51:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:44:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 int	key_hook(int keycode, t_engine *engine)
 {

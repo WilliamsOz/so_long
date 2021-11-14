@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:42:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/12 16:28:18 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:33:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../../inc/so_long.h"
 
 static t_engine	*init_error_struct(t_engine *engine)
 {
