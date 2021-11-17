@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:43:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/14 12:21:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:28:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_engine	*init_map(t_engine *engine, int eof, int count)
 	{
 		line = NULL;
 		eof = get_next_line(engine->error->fd, &line);
-		if (line == NULL)
+		if (line == NULL && eof != 0)
 			engine->error->map_bad_format = 1;
 		if (eof != 0 || line != NULL)
 			get_count_and_free_line(line, &count);
