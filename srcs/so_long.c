@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/14 12:59:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 11:51:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,10 @@ int	main(int ac, char **av)
 	t_engine	*engine;
 
 	if (ac != 2)
+	{
 		write(1, "Error\nThe number of arguments is not two\n", 41);
+		return (0);
+	}
 	engine = NULL;
 	engine = check_all_errors(engine, av[1]);
 	init_mlx_engine(engine, 0, 0);
