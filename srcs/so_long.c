@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:08:24 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 11:51:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:02:41 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ int	manage_events(t_engine *engine)
 
 void	mlx_engine(t_engine *engine, int size_x, int size_y)
 {
-	if (BONUS == 1)
+	if (BONUS == 1 && engine->data->monster > 0)
 		engine = get_monster_pos(engine, 0, 0, 0);
+	else if (BONUS == 1 && engine->data->monster == 0)
+		engine->monster_position = NULL;
 	engine->keycode = '0';
 	engine->move_count = 0;
 	engine = get_player_position(engine);

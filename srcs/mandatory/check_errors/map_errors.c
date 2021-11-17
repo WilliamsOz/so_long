@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:15:08 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 12:24:02 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:02:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static t_engine	*get_map_data(t_engine *engine, char c)
 		engine->data->exit++;
 	else if (c == 'C')
 		engine->data->collectible++;
+	else if (c == 'M' && BONUS == 1)
+		engine->data->monster++;
 	return (engine);
 }
 

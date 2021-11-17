@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:55:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/14 12:58:13 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:49:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	engine_full_destroyer(t_engine *engine, int ind)
 
 void	free_all_engine(t_engine *engine, int ind)
 {
-	if (BONUS == 1)
+	if (BONUS == 1 && engine->monster_position != NULL)
 		ft_lst_clear(engine->monster_position);
 	mlx_destroy_image(engine->img->mlx_ptr, engine->img->img_ptr);
 	engine->img->img_ptr = NULL;

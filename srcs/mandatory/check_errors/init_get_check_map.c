@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:43:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 12:28:45 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:01:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static t_engine	*init_map(t_engine *engine, int eof, int count)
 	}
 	if (count == 0)
 	{
+		free(engine->error);
+		free(engine);
 		write(1, "Error\nEmpty map\n", 16);
 		exit (EXIT_FAILURE);
 	}

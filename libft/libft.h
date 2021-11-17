@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 14:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/11/12 17:09:37 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:02:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_map_data
 	int			player;
 	int			collectible;
 	int			exit;
+	int			monster;
 }				t_map_data;
 
 typedef struct s_error

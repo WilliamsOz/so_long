@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:09:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/14 12:21:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:46:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_engine	*init_engine_data(t_engine *engine)
 	engine->data->player = 0;
 	engine->data->collectible = 0;
 	engine->data->exit = 0;
+	engine->data->monster = 0;
 	return (engine);
 }
 

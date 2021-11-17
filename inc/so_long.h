@@ -26,7 +26,7 @@
 # define LEFT_KEY 97
 # define RIGHT_KEY 100
 # define ESC_KEY 65307
-# define BONUS 0
+# define BONUS 1
 
 void		print_move(t_engine *engine, int count);
 int			mouse_and_esc_exit(t_engine *engine);
